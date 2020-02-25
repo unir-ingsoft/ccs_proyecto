@@ -18,7 +18,7 @@ $app->group('/user/', function () {
                 ]);
         }
         else{
-            $app->redirect('/');
+            $this->redirect('/');
             return $res = $this->renderer->render(
                 $res, 
                 'index.phtml',
