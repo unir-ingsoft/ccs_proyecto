@@ -64,7 +64,7 @@ class UserModel
 
             
             $this->response->setResponse(true);
-            $result = $stm->lastInsertId();
+            $result = $this->db->lastInsertId();
             $this->response->result = $result;
 
             if($result > 0) {
