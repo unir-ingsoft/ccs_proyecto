@@ -9,7 +9,7 @@ $app->group('/user/', function () {
         $query_result = $um->login($data);
        
         if($query_result['result'] != ''){
-            $res = $this->renderer->render(
+            return $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
                 array("nombre" => $query_result['result']['cNombre']));
