@@ -29,8 +29,10 @@
                                 <p>Host: <?=$programa["cNombre"]." ".$programa["cApellido"] ?></p>
                                 <p>¿Cuándo?: <?=$programa["dFecha"]." a las ".$programa["cHora"] ?><p>
                                 <p>
+                                    <?php if ($_SESSION['usuariopk'] == $programa['nUsuarioPK']): ?>
                                     <img onclick="showUpdate(<?=$programa['nProgramaPK'] ?>)" src="http://kornmexico.com/unirlab02/app/views/css/img/edit.png">
                                     <a href="http://kornmexico.com/unirlab02/v1/index.php/programa/delete/<?=$programa['nProgramaPK'] ?>" onclick="return confirm('Are you sure?')"><img src="http://kornmexico.com/unirlab02/app/views/css/img/delete.png"></a>
+                                    <?php endif; ?>
                                 </p>
                                 <div id="<?=$programa['nProgramaPK'] ?>" style="display:none">
                                     <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/update" method="POST" class="login-form validate-form">
