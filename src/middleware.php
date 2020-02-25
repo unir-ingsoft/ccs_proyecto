@@ -2,7 +2,7 @@
 namespace Middleware;
 use Slim\Http\Request;
 use Slim\Http\Response;
-class TokenAuth
+class sessionAuth
 {
 	private $container;
 
@@ -30,7 +30,13 @@ class TokenAuth
         return true;
     }
     public function denyAccess(){
-        http_response_code(401);
+        //http_response_code(401);
+        return $res = $this->renderer->render(
+            $res, 
+            'registro.phtml',
+            [
+                "error" => "Ocurrió un error al registrar sus datos"
+            ]);
         exit;
     }
 

@@ -18,7 +18,7 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-/*$container['tokenAuth'] = function ($c) {
-	//Token validations ese
-	return new Controllers\Auth\tokenAuth;
+/*$container['sessionAuth'] = function ($c) {
+	//session validations
+	return new Controllers\Auth\sessionAuth;
 };*/
