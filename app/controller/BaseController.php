@@ -1,5 +1,4 @@
 <?php
-use App\Model\UserModel;
 
 $app->get('/registro/', function ($request, $response, $args) {
     // Sample log message

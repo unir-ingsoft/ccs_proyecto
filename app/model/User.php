@@ -50,20 +50,24 @@ class UserModel
         }
     }
     
-    public function getData($token){
+    public function registrar($token){
         try
-        {
-            $result = array();
-            $sql = "Exec mv_SociosSelByToken ?";
-            $stm = $this->db->prepare($sql);
-            $stm->bindParam(1, $token, PDO::PARAM_STR);
+        {   
+            $encryptedPwd = sha1($data['pass']);
+            $result = 0;
+            $stm = $this->db->prepare("INSERT INTO $this->table (cNombre, cApellido, cCorreo, cPassword) VALUES (?,?,?,?)");
+            $stm->bindParam(1, $data['nombre'], PDO::PARAM_STR);
+            $stm->bindParam(2, $data['apellidos'], PDO::PARAM_STR);
+            $stm->bindParam(3, $data['email'], PDO::PARAM_STR);
+            $stm->bindParam(4, $encryptedPwd, PDO::PARAM_STR);
             $stm->execute();
+
             
             $this->response->setResponse(true);
-            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $result = $stm->lastInsertId();
             $this->response->result = $result;
 
-            if(count($result) > 0) {
+            if($result > 0) {
                 $this->response->message  = "Ok";
             }
             else {
@@ -71,7 +75,7 @@ class UserModel
             }
             return $this->response;
         }
-        catch(Exception $e)
+        catch(PDOExecption $e)
         {
             $this->response->setResponse(false, $e->getMessage());
             return $this->response;
