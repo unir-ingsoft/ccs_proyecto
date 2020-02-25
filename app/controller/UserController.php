@@ -18,6 +18,7 @@ $app->group('/user/', function () {
                 ]);
         }
         else{
+            $app->redirect('/');
             return $res = $this->renderer->render(
                 $res, 
                 'index.phtml',
