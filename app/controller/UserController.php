@@ -13,7 +13,7 @@ $app->group('/user/', function () {
                 $res, 
                 'alta_programa.phtml',
                 [
-                    "nombre" => "My Title"
+                    "nombre" => $query_result['result']['cNombre']
                 ]);
         //}
         
