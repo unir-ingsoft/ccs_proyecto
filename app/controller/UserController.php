@@ -31,13 +31,28 @@ $app->group('/user/', function () {
     
     $this->post('registrar', function ($req, $res) {
         $um = new UserModel();
-        //$token = $req->getHeader('Auth')[0];
-        return $res
-        ->withHeader('Content-type', 'application/json')
-        ->getBody()
-        ->write(
-            json_encode($um->registrar($req->getParsedBody()))
-        );
+        $data = $req->getParsedBody();
+        $um = new UserModel();
+        $query_result = $um->registrar($data);
+        //$this->logger->info(var_dump($query_result));
+       
+        if($query_result->result){
+            return $res = $this->renderer->render(
+                $res, 
+                'alta_programa.phtml',
+                [
+                    "nombre" => $data['nombre']
+                ]);
+        }
+        else{
+            
+            return $res = $this->renderer->render(
+                $res, 
+                'registro.phtml',
+                [
+                    "error" => "Ocurrió un error al registrar sus datos"
+                ]);
+        }
     });
     
 });
