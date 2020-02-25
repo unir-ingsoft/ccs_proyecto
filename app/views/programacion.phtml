@@ -17,37 +17,37 @@
                                 <img width="100" height="100" src="http://kornmexico.com/unirlab02/app/views/css/img/logo.jpg" />
                                 <h3><?=$programa["cTema"] ?></h3>
                                 <p>Host: <?=$programa["cNombre"]." ".$programa["cApellido"] ?></p>
-                                <p>¿Cuándo?: <?=$programa["dFecha"]." ".$programa["cHora"] ?>, 
-                                    Escuchalo: <a href="<?=$programa["cUrl"] ?>" target="_blank" ><img src="http://kornmexico.com/unirlab02/app/views/css/img/radio.png"></a>
+                                <p>¿Cuándo?: <?=$programa["dFecha"]." a las ".$programa["cHora"] ?><br>
+                                    Escúchalo: <a href="<?=$programa["cUrl"] ?>" target="_blank" ><img src="http://kornmexico.com/unirlab02/app/views/css/img/radio.png"></a>
                                 </p>
                                 <p>
                                     <img src="http://kornmexico.com/unirlab02/app/views/css/img/edit.png">
                                     <img src="http://kornmexico.com/unirlab02/app/views/css/img/delete.png">
                                 </p>
+                                <div>
+                                    <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/update" method="POST" class="login-form validate-form">
+                                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                                            <input class="input" type="text" maxlength="150" name="tema" placeholder="Tema del programa" value="<?=$programa['cTema']?>" required>
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                                            <input class="input" type="url" maxlength="150" name="url" placeholder="Url al programa" value="<?=$programa['cUrl']?>" required>
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "La fecha es obligatoria">
+                                            <input class="input" type="date" name="fecha" placeholder="Fecha" required value="<?=$programa['dFecha']?>">
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "El horario es obligatorio">
+                                            <input class="input" type="time" name="hora" placeholder="Hora" required value="<?=$programa['cHora']?>">
+                                        </div>
+                                        <div class="container-login-btn">
+                                            <button class="login-btn">
+                                                Registrar programa
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </li>
                             <?php endforeach; ?>
                         </ul>
-                    </div>
-                    <div style="visibility: hidden">
-                        <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/update" method="POST" class="login-form validate-form">
-                            <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
-                                <input class="input" type="text" maxlength="150" name="tema" placeholder="Tema del programa" required>
-                            </div>
-                            <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
-                                <input class="input" type="url" maxlength="150" name="url" placeholder="Url al programa" required>
-                            </div>
-                            <div class="wrapper-inputs validate-input" data-validate = "La fecha es obligatoria">
-                                <input class="input" type="date" name="fecha" placeholder="Fecha" required>
-                            </div>
-                            <div class="wrapper-inputs validate-input" data-validate = "El horario es obligatorio">
-                                <input class="input" type="time" name="hora" placeholder="Hora" required>
-                            </div>
-                            <div class="container-login-btn">
-                                <button class="login-btn">
-                                    Registrar programa
-                                </button>
-                            </div>
-                        </form>
                     </div>
                         <!--<div class="text-center p-t-136">
                            <a class="txt2" href="controller.php?action=ex">
