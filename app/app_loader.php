@@ -4,7 +4,7 @@ $base = __DIR__ . '/../app/';
 $folders = [
     'lib',
     'model',
-    'route',
+    'views',
     'controller'
 ];
 
@@ -15,3 +15,4 @@ foreach($folders as $f)
         require $filename;
     }
 }
+
