@@ -19,9 +19,9 @@ class UserModel
 
     public function login($data){
         try {
-            if (isset($data['email']) && isset($data['password'])) {
+            if (isset($data['email']) && isset($data['pass'])) {
                 $result = array();
-                $encryptedPwd = sha1($data['password']);
+                $encryptedPwd = sha1($data['pass']);
 
                 $stm = $this->db->prepare("SELECT * FROM $this->table WHERE cCorreo = ? AND cPassword = ?");
                 $stm->bindParam(1, $data['email'], PDO::PARAM_STR);
@@ -41,7 +41,7 @@ class UserModel
                 return $this->response;
             }
             else {
-                $this->response->setResponse(false, $e->getMessage());
+                $this->response->setResponse(false, "Error faltan datos");
                 return $this->response;
             }
         }
