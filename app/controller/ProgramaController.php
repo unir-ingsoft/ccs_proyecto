@@ -34,15 +34,14 @@ $app->group('/programa/', function () {
 
     $this->post('insert', function ($req, $res) {
         $rm = new ProgramaModel();
-        
-        return $res
-           ->withHeader('Content-type', 'application/json')
-           ->getBody()
-           ->write(
-            json_encode(
-                $rm->getAll()
-            )
-        );
+        $data = $req->getParsedBody();
+        $query_result = $rm->crear($data);
+        if($query_result->result){
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/0');
+        }
+        else{
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/1');
+        }
     });
     
     $this->post('update', function ($req, $res) {

@@ -14,6 +14,7 @@ $app->group('/user/', function () {
                 $res, 
                 'alta_programa.phtml',
                 [
+                    "usuariopk" => $query_result->result['nUsuarioPK'],
                     "nombre" => $query_result->result['cNombre']
                 ]);
         }
@@ -41,6 +42,7 @@ $app->group('/user/', function () {
                 $res, 
                 'alta_programa.phtml',
                 [
+                    "usuariopk" => $query_result->result,
                     "nombre" => $data['nombre']
                 ]);
         }
