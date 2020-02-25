@@ -7,14 +7,12 @@ $app->group('/user/', function () {
         $data = $req->getParsedBody();
         $um = new UserModel();
         $query_result = $um->login($data);
-
-        echo $query_result;
-        
-        if($query_result->result != ''){
+       
+        if($query_result['result'] != ''){
             $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
-                array("nombre" => $query_result->result['cNombre']));
+                array("nombre" => $query_result['result']['cNombre']));
         }
         
     });
