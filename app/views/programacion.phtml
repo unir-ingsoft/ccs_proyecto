@@ -23,7 +23,7 @@
                                     <img onclick="showUpdate(<?=$programa['nProgramaPK'] ?>)" src="http://kornmexico.com/unirlab02/app/views/css/img/edit.png">
                                     <img src="http://kornmexico.com/unirlab02/app/views/css/img/delete.png">
                                 </p>
-                                <div id="<?=$programa['nProgramaPK'] ?>" style="visibility:hidden">
+                                <div id="<?=$programa['nProgramaPK'] ?>" style="display:none">
                                     <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/update" method="POST" class="login-form validate-form">
                                         <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
                                             <input class="input" type="text" maxlength="150" name="tema" placeholder="Tema del programa" value="<?=$programa['cTema']?>" required>
@@ -41,9 +41,9 @@
                                             <button class="login-btn">
                                                 Guardar
                                             </button>
-                                        </div>
-                                        <div class="text-center p-t-136" onclick="hideUpdate(<?=$programa['nProgramaPK'] ?>)">
-                                            Cancelar
+                                            <div class="text-center p-t-136" onclick="hideUpdate(<?=$programa['nProgramaPK'] ?>)">
+                                                Cancelar
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -65,11 +65,11 @@
     <script type="text/javascript">
         function showUpdate(id){
             var x = document.getElementById(id);
-            x.style.visibility = "visible";
+            x.style.display = "block";
         }
         function hideUpdate(id){
             var x = document.getElementById(id);
-            x.style.visibility = "hidden";
+            x.style.display = "none";
         }
     </script>
 </html>
