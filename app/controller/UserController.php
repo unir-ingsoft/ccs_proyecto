@@ -9,14 +9,22 @@ $app->group('/user/', function () {
         $query_result = $um->login($data);
         $this->logger->info(var_dump($query_result));
        
-        //if($query_result['result'] != ''){
+        if($query_result->result){
             return $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
                 [
                     "nombre" => $query_result->result['cNombre']
                 ]);
-        //}
+        }
+        else{
+            return $res = $this->renderer->render(
+                $res, 
+                'index.phtml',
+                [
+                    "response" => "Datos incorrectos"
+                ]);
+        }
         
     });
     
