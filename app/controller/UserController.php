@@ -12,7 +12,9 @@ $app->group('/user/', function () {
             return $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
-                array("nombre" => $query_result['result']['cNombre']));
+                [
+                    "nombre" => "My Title"
+                ]);
         //}
         
     });
