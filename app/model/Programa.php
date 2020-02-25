@@ -106,4 +106,28 @@ class ProgramaModel
             return $this->response;
         }
     }
+
+    public function eliminar($id)
+    try
+        {   
+            $result = 0;
+           
+            $stm = $this->db->prepare("DELETE FROM $this->table WHERE nProgramaPK=?");
+            $stm->bindParam(1, $id], PDO::PARAM_STR);
+            $stm->execute();
+
+            
+            $this->response->setResponse(true);
+            $result = 1;
+            $this->response->result = $result;
+
+            $this->response->message  = "Ok";
+
+            return $this->response;
+        }
+        catch(PDOExecption $e)
+        {
+            $this->response->setResponse(false, $e->getMessage());
+            return $this->response;
+        }
 }
