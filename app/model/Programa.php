@@ -9,7 +9,7 @@ class ProgramaModel
 {
     private $db;
     private $table = 'programas';
-    private $innertabe = 'usuarios';
+    private $innertable = 'usuarios';
     private $response;
     
     public function __CONSTRUCT()
