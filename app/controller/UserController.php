@@ -4,29 +4,44 @@ use App\Model\UserModel;
 $app->group('/user/', function () {
     
     $this->post('login', function ($req, $res){
-        $data = $req->getParsedBody();
-        $um = new UserModel();
-        $query_result = $um->login($data);
-        //$this->logger->info(var_dump($query_result));
-       
-        if($query_result->result){
+        if(!$_SESSION['logged']){
+            $data = $req->getParsedBody();
+            $um = new UserModel();
+            $query_result = $um->login($data);
+            //$this->logger->info(var_dump($query_result));
+        
+            if($query_result->result){
+                $_SESSION['logged'] = 1;
+                $_SESSION['nombre'] = $query_result->result['cNombre'];
+                $_SESSION['usuariopk'] = $query_result->result['nUsuarioPK'];
+                return $res = $this->renderer->render(
+                    $res, 
+                    'alta_programa.phtml',
+                    [
+                        "usuariopk" => $query_result->result['nUsuarioPK'],
+                        "nombre" => $query_result->result['cNombre']
+                    ]);
+            }
+            else{
+                
+                return $res = $this->renderer->render(
+                    $res, 
+                    'index.phtml',
+                    [
+                        "error" => "Datos incorrectos"
+                    ]);
+            }
+        }
+        else {
             return $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
                 [
-                    "usuariopk" => $query_result->result['nUsuarioPK'],
-                    "nombre" => $query_result->result['cNombre']
+                    "usuariopk" => $_SESSION['usuariopk'],
+                    "nombre" => $_SESSION['nombre']
                 ]);
         }
-        else{
-            
-            return $res = $this->renderer->render(
-                $res, 
-                'index.phtml',
-                [
-                    "error" => "Datos incorrectos"
-                ]);
-        }
+        
         
     });
     
