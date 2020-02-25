@@ -17,7 +17,7 @@ $app = new \Slim\App($settings);
 // cargar elementos
 require __DIR__ . '/../src/dependencies.php';
 //require __DIR__ . '/../src/middleware.php';
-require __DIR__ . '/../controller/BaseController.php';
+require __DIR__ . '/../app/controller/BaseController.php';
 require __DIR__ . '/../app/app_loader.php';
 
 //añadri validacion de token para consumo de mi apirest
