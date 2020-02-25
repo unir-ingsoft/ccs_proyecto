@@ -50,7 +50,7 @@ class UserModel
         }
     }
     
-    public function registrar($token){
+    public function registrar($data){
         try
         {   
             $encryptedPwd = sha1($data['pass']);
