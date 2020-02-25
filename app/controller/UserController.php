@@ -53,6 +53,9 @@ $app->group('/user/', function () {
         //$this->logger->info(var_dump($query_result));
        
         if($query_result->result){
+            $_SESSION['logged'] = 1;
+            $_SESSION['nombre'] = $data['nombre'];
+            $_SESSION['usuariopk'] = $query_result->result;
             return $res = $this->renderer->render(
                 $res, 
                 'alta_programa.phtml',
