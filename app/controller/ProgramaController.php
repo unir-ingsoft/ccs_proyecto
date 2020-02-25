@@ -63,12 +63,12 @@ $app->group('/programa/', function () {
     $this->get('delete/{id}', function ($req, $res, $id) {
         $rm = new ProgramaModel();
         $query_result = $rm->eliminar($id);
-        
+        if($query_result->result){
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/0');
+        }
+        else{
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/1');
+        }
     });
-    if($query_result->result){
-        return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/0');
-    }
-    else{
-        return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/1');
-    }
+
 });
