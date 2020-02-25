@@ -113,7 +113,7 @@ class ProgramaModel
             $result = 0;
            
             $stm = $this->db->prepare("DELETE FROM $this->table WHERE nProgramaPK=?");
-            $stm->bindParam(1, $id], PDO::PARAM_STR);
+            $stm->bindParam(1, $id, PDO::PARAM_STR);
             $stm->execute();
 
             
