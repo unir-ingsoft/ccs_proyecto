@@ -10,12 +10,15 @@
             <div class="login-general">
                 <div class="login-screen">
                     <span class="titulo">PROGRAMACIÓN</span>
+                    <span class="error">
+                        <?=$msg?>
+                    </span>
                     <div>
                         <ul>
                             <?php foreach ($programas as $programa): ?>
                             <li>
                                 <img width="100" height="100" src="http://kornmexico.com/unirlab02/app/views/css/img/logo.jpg" />
-                                <h3><?=$programa["cTema"] ?></h3> <a href="<?=$programa["cUrl"] ?>" target="_blank" ><img src="http://kornmexico.com/unirlab02/app/views/css/img/radio.png"></a>
+                                <h3><?=$programa["cTema"] ?></h3> <a href="<?=$programa["cUrl"] ?>" target="_blank" style="float:right !important" ><img src="http://kornmexico.com/unirlab02/app/views/css/img/radio.png"></a>
                                 <p>Host: <?=$programa["cNombre"]." ".$programa["cApellido"] ?></p>
                                 <p>¿Cuándo?: <?=$programa["dFecha"]." a las ".$programa["cHora"] ?><p>
                                 <p>
@@ -36,6 +39,7 @@
                                         <div class="wrapper-inputs validate-input" data-validate = "El horario es obligatorio">
                                             <input class="input" type="time" name="hora" placeholder="Hora" required value="<?=$programa['cHora']?>">
                                         </div>
+                                        <input type="hidden" value="<?=$programa['nProgramaPK'] ?>" name="programapk" />
                                         <div class="container-login-btn">
                                             <button class="login-btn">
                                                 Guardar

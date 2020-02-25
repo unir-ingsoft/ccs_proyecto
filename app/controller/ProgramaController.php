@@ -3,17 +3,23 @@ use App\Model\ProgramaModel;
 
 $app->group('/programa/', function () {
     
-    $this->get('get/{id}', function ($req, $res) {
+    $this->get('get/{id}', function ($req, $res, $errorid) {
         $rm = new ProgramaModel();
         $query_result = $rm->obtener();
         //$this->logger->info(var_dump($query_result));
-       
+        if ($errorid == 1){
+            $msg = "Ocurrio un error al procesar su petición";
+        }
+        else {
+            $msg = "";
+        }
         if($query_result->result){
             return $res = $this->renderer->render(
                 $res, 
                 'programacion.phtml',
                 [
-                    "programas" => $query_result->result
+                    "programas" => $query_result->result,
+                    "msg" => $msg
                 ]);
         }
         else{
@@ -41,17 +47,18 @@ $app->group('/programa/', function () {
     
     $this->post('update', function ($req, $res) {
         $rm = new ProgramaModel();
+
+        $data = $req->getParsedBody();
+        $query_result = $rm->editar($data);
+        //$this->logger->info(var_dump($query_result));
+       
+        if($query_result->result){
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/0');
+        }
+        else{
+            return $res->withHeader('Location', 'http://kornmexico.com/unirlab02/v1/index.php/programa/get/1');
+        }
         
-        return $res
-           ->withHeader('Content-type', 'application/json')
-           ->getBody()
-           ->write(
-            json_encode(
-                $rm->updateByPk(
-                    $req->getParsedBody()
-                )
-            )
-        );
     });
     
     $this->post('delete', function ($req, $res) {
