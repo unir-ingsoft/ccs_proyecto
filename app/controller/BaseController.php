@@ -1,7 +1,7 @@
 <?php
 use App\Model\UserModel;
 
-$app->get('/registro', function ($request, $response, $args) {
+$app->get('/registro/', function ($request, $response, $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/registro'");
 
