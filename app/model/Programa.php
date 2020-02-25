@@ -107,8 +107,8 @@ class ProgramaModel
         }
     }
 
-    public function eliminar($id)
-    try
+    public function eliminar($id){
+        try
         {   
             $result = 0;
            
@@ -130,4 +130,5 @@ class ProgramaModel
             $this->response->setResponse(false, $e->getMessage());
             return $this->response;
         }
+    }
 }
