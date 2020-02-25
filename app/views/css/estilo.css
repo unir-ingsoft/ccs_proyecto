@@ -192,3 +192,8 @@ button:hover {
     line-height: 1.5;
     color: #666666;
   }
+
+.error{
+    color: red;
+    font-weight: bold;
+}

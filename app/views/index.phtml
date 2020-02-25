@@ -16,6 +16,9 @@
                   <span class="titulo">
                      Iniciar Sesión
                   </span>
+                  <span class="error">
+                     <?=if(isset($error){$error})?>
+                  </span>
    
                   <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
                      <input class="input" type="email" name="email" placeholder="Email" required>

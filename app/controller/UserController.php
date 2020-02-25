@@ -22,7 +22,7 @@ $app->group('/user/', function () {
                 $res, 
                 'index.phtml',
                 [
-                    "response" => "Datos incorrectos"
+                    "error" => "Datos incorrectos"
                 ]);
         }
         
