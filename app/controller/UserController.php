@@ -24,7 +24,7 @@ $app->group('/user/', function () {
                 'index.phtml',
                 [
                     "error" => "Datos incorrectos"
-                ])->withRedirect('/');
+                ]);
         }
         
     });
