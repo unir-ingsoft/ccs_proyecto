@@ -85,7 +85,7 @@ class ProgramaModel
             $encryptedPwd = sha1($data['pass']);
             $result = 0;
            
-            $stm = $this->db->prepare("UPDATE $this->table SET dFecha=?, cHora=?, cTema=?, cUrl=? WHERE nProgramaPK=?)");
+            $stm = $this->db->prepare("UPDATE $this->table SET dFecha=?, cHora=?, cTema=?, cUrl=? WHERE nProgramaPK=?");
             $stm->bindParam(1, $data['fecha'], PDO::PARAM_STR);
             $stm->bindParam(2, $data['hora'], PDO::PARAM_STR);
             $stm->bindParam(3, $data['tema'], PDO::PARAM_STR);
