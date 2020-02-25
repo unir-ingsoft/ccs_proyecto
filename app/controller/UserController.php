@@ -18,13 +18,13 @@ $app->group('/user/', function () {
                 ]);
         }
         else{
-            $this->redirect('/');
+            
             return $res = $this->renderer->render(
                 $res, 
                 'index.phtml',
                 [
                     "error" => "Datos incorrectos"
-                ]);
+                ])->withRedirect('/');
         }
         
     });
