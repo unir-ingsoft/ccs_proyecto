@@ -7,6 +7,7 @@ $app->group('/user/', function () {
         $data = $req->getParsedBody();
         $um = new UserModel();
         $query_result = $um->login($data);
+        $this->logger->info(var_dump($query_result));
        
         //if($query_result['result'] != ''){
             return $res = $this->renderer->render(
