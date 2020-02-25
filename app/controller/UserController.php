@@ -14,7 +14,7 @@ $app->group('/user/', function () {
                 $res, 
                 'alta_programa.phtml',
                 [
-                    "nombre" => $query_result['result']['cNombre']
+                    "nombre" => $query_result->result['cNombre']
                 ]);
         //}
         
