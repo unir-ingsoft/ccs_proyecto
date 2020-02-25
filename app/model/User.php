@@ -41,7 +41,8 @@ class UserModel
                 return $this->response;
             }
             else {
-                $this->response->setResponse(false, "Hacen falta datos para completar esta solicitud.");
+                $this->response->setResponse(false, $e->getMessage());
+                return $this->response;
             }
         }
         catch (Exception $e) {
