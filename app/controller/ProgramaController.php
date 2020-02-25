@@ -5,7 +5,7 @@ $app->group('/programa/', function () {
     
     $this->get('get/{id}', function ($req, $res) {
         $rm = new ProgramaModel();
-        $query_result = $um->obtener();
+        $query_result = $rm->obtener();
         //$this->logger->info(var_dump($query_result));
        
         if($query_result->result){
