@@ -44,7 +44,7 @@ class UserModel
                 $this->response->setResponse(false, "Error faltan datos");
 
             }
-            return $this->response
+            return $this->response;
         }
         catch (Exception $e) {
             $this->response->setResponse(false, $e->getMessage());
