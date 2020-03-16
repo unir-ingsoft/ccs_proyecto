@@ -21,7 +21,7 @@ $("#login").on('click', function(){
 		        function (data) {
                     if(data.message != "401"){
                         sessionStorage.setItem("sessionStarted", 1);
-                        window.location="panel.html";
+                        window.location="alta_programa.html";
                     }
                     else {
                         alert("Sus credenciales no son correctas");
