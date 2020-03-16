@@ -29,6 +29,7 @@ function sendRequest (url, method, params,  success, failed, async, background) 
           }
        },
        error: function (xhr, status) {
+          console.log(xhr);
           switch (status) {
              case 401:
                 alert("No tiene los permisos necesarios");

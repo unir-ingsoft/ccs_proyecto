@@ -24,7 +24,6 @@ $("#login").on('click', function(){
 		        function (data) {
                     console.log(data);
                     console.log(typeof(data));
-                    //let jsonData = JSON.parse
                     if(data.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
                         window.location="alta_programa.html";
@@ -34,7 +33,7 @@ $("#login").on('click', function(){
                     }
                 },
                 function (data) {
-                    alert("Sus credenciales no son correctas");
+                    alert("Un error indesperado ha ocurrido");
                 }
 		   );
 		}
