@@ -15,9 +15,10 @@ $("#login").on('click', function(){
 		if(username != '' && password != ''){
 			parametros = {
                 username: username,
-                password: password
+                password: password,
+                action: 'login'
             };
-			sendRequest(url + 'index.php/user/login', 'POST', parametros, 
+			sendRequest(url + 'index.php', 'POST', parametros, 
 		        function (data) {
                     if(data.message != "401"){
                         sessionStorage.setItem("sessionStarted", 1);

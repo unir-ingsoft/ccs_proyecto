@@ -1,27 +1,18 @@
 <?php
-if (PHP_SAPI == 'cli-server') {
-    $file = __DIR__ . $_SERVER['REQUEST_URI'];
-    if (is_file($file)) {
-        return false;
+    include("lib/database.php");
+    $accion = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+
+    if($accion == "login"){
+        $result = array();
+        $username = $_REQUEST['username'];
+        $encryptedPwd = sha1($_REQUEST['password']);
+        $parametros = array(':usuario' => $username, ':pass' => $encryptedPwd);
+
+        $pdo->prepare("SELECT * FROM usuarios WHERE cCorreo = :usuario AND cPassword = :pass");
+
+        $pdo->execute($parametros);
+        $result = $pdo->fetch(PDO::FETCH_ASSOC);
+
+        echo json_encode($result);
     }
-}
-
-require __DIR__ . '/../vendor/autoload.php';
-
-session_start();
-
-// instanciar app
-$settings = require __DIR__ . '/../src/settings.php';
-$app = new \Slim\App($settings);
-
-// cargar elementos
-require __DIR__ . '/../src/dependencies.php';
-//require __DIR__ . '/../src/middleware.php';
-require __DIR__ . '/../src/routes.php';
-require __DIR__ . '/../app/app_loader.php';
-
-//añadri validacion de token para consumo de mi apirest
-//$app->add( new Middleware\tokenAuth($container) );
-
-// uiniciar app
-$app->run();
+?>
