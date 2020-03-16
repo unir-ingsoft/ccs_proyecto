@@ -19,9 +19,9 @@ class UserModel
 
     public function login($data){
         try {
-            if (isset($data['email']) && isset($data['pass'])) {
+            if (isset($data['username']) && isset($data['password'])) {
                 $result = array();
-                $encryptedPwd = sha1($data['pass']);
+                $encryptedPwd = sha1($data['password']);
 
                 $stm = $this->db->prepare("SELECT * FROM $this->table WHERE cCorreo = ? AND cPassword = ?");
                 $stm->bindParam(1, $data['email'], PDO::PARAM_STR);
