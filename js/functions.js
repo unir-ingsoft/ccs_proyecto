@@ -16,7 +16,7 @@ function sendRequest (url, method, params,  success, failed, async, background) 
     if (background == null){
        background = false;
     }
-    app.request({
+    $.ajax({
        url: url,
        method: method,
        data: params,
@@ -60,4 +60,3 @@ function sendRequest (url, method, params,  success, failed, async, background) 
        }
     });
  }
- 
