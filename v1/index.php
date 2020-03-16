@@ -9,7 +9,7 @@
         $parametros = array(':usuario' => $username, ':pass' => $encryptedPwd);
 
         $sql = "SELECT * FROM usuarios WHERE cCorreo = :usuario AND cPassword = :pass";
-        $stmt->$pdo->prepare($sql);
+        $stmt = $pdo->prepare($sql);
 
         $stmt->execute($parametros);
         $result = $pdo->fetch(PDO::FETCH_ASSOC);
