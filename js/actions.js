@@ -17,7 +17,7 @@ $("#login").on('click', function(){
                 username: username,
                 password: password
             };
-			sendRequest(url + 'user/login', 'POST', parametros, 
+			sendRequest(url + 'index.php/user/login', 'POST', parametros, 
 		        function (data) {
                     if(data.message != "401"){
                         sessionStorage.setItem("sessionStarted", 1);
