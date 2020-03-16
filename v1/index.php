@@ -12,7 +12,7 @@
         $stmt = $pdo->prepare($sql);
 
         $stmt->execute($parametros);
-        $result = $pdo->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         echo json_encode($result);
     }

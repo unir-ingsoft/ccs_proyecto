@@ -6,7 +6,7 @@
     @var parametros {array} el arreglo de parametros que ajax enviará al servidor
 */
 $("#login").on('click', function(){
-    let username =  $("#name").val(),
+    let username =  $("#email").val(),
         password = $("#pass").val(),
         parametros = {},
         url = uris['url'+environment];
