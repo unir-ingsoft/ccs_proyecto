@@ -1,5 +1,5 @@
 <?php
-    include("app/lib/database.php");
+    include("../app/lib/database.php");
     $accion = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
     if($accion == "login"){
