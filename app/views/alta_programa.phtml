@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Registra tu programa - Pulse by Horizon Festival</title>
+        <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://kornmexico.com/unirlab02/app/views/css/estilo.css">
+   </head>
+   <body>
+        <div class="contenedor">
+            <div class="login-general">
+                <div class="login-screen">
+                    <div class="login100-pic js-tilt" data-tilt>
+                        <a href="http://kornmexico.com/unirlab02/v1/index.php/programa/get/0">
+                            <img src="http://kornmexico.com/unirlab02/app/views/css/img/programacion.jpg">
+                        </a>
+                    </div>
+                    <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/insert" method="POST" class="login-form validate-form">
+                        <span class="titulo">BIENVENIDO, <?=$nombre?></span>
+
+                        <span class="error">
+                            <?=$error?>
+                        </span>
+   
+                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                            <input class="input" type="text" maxlength="150" name="tema" placeholder="Tema del programa" required>
+                        </div>
+    
+                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                            <input class="input" type="url" maxlength="150" name="url" placeholder="Url al programa" required>
+                        </div>
+
+                        <div class="wrapper-inputs validate-input" data-validate = "La fecha es obligatoria">
+                            <input class="input" type="date" name="fecha" placeholder="Fecha" required>
+                        </div>
+    
+                        <div class="wrapper-inputs validate-input" data-validate = "El horario es obligatorio">
+                            <input class="input" type="time" name="hora" placeholder="Hora" required>
+                        </div>
+                        <input type="hidden" value="<?=$usuariopk ?>" name="usuariopk" />
+
+                        <div class="container-login-btn">
+                            <button class="login-btn">
+                                Registrar programa
+                            </button>
+                        </div>
+
+                        <div class="text-center p-t-136">
+                           <a class="txt2" href="http://kornmexico.com/unirlab02/v1/index.php/logout/">
+                              Salir
+                              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                           </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

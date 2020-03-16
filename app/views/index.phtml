@@ -1,0 +1,52 @@
+<html>
+   <head>
+      <title>Horizon Festival - Pulse Radio</title>
+      <meta charset="UTF-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="http://kornmexico.com/unirlab02/app/views/css/estilo.css">
+   </head>
+   <body>
+      <div class="contenedor">
+         <div class="login-general">
+            <div class="login-screen">
+               <div class="login100-pic js-tilt" data-tilt>
+                  <a href="http://kornmexico.com/unirlab02/v1/index.php/programa/get/0">
+                     <img src="http://kornmexico.com/unirlab02/app/views/css/img/programacion.jpg">
+                  </a>
+               </div>
+               <form action="http://kornmexico.com/unirlab02/v1/index.php/user/login" method="POST" class="login-form validate-form">
+                  <span class="titulo">
+                     Iniciar Sesión
+                  </span>
+                  <span class="error">
+                     <?=$error?>
+                  </span>
+   
+                  <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
+                     <input class="input" type="email" name="email" placeholder="Email" required>
+                  </div>
+   
+                  <div class="wrapper-inputs validate-input" data-validate = "La contraseña es requerida">
+                     <input class="input" type="password" name="pass" placeholder="Password" requireds>
+                  </div>
+
+                  <input type="hidden" name="action" value="login" />
+
+                  <div class="container-login-btn">
+                     <button class="login-btn">
+                        Entrar
+                     </button>
+                  </div>
+
+                  <div class="text-center p-t-136">
+                     <a class="txt2" href="http://kornmexico.com/unirlab02/v1/index.php/registro/">
+                        Registrarse
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                     </a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,228 @@
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #999999; }
+input:-moz-placeholder { color: #999999; }
+input::-moz-placeholder { color: #999999; }
+input:-ms-input-placeholder { color: #999999; }
+
+textarea::-webkit-input-placeholder { color: #999999; }
+textarea:-moz-placeholder { color: #999999; }
+textarea::-moz-placeholder { color: #999999; }
+textarea:-ms-input-placeholder { color: #999999; }
+
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+.contenedor{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login-general{
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #aec850, #29356d);
+    background: -o-linear-gradient(-135deg, #aec850, #29356d);
+    background: -moz-linear-gradient(-135deg, #aec850, #29356d);
+    background: linear-gradient(-135deg, #aec850, #29356d);
+}
+
+.login-screen{
+    width: 960px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 177px 130px 33px 95px;
+}
+.login100-pic {
+    width: 316px;
+  }
+  
+.login100-pic img {
+    max-width: 100%;
+}
+
+
+/*---------------form--------------------*/
+
+.login-form{
+    width: 290px;
+}
+    .titulo {
+        font-size: 24px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding-bottom: 54px;
+    }
+
+/*----------------Elementos form--------------------*/
+.wrapper-inputs {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 10px;
+  }
+  
+.input {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
+
+.container-login-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+  
+.login-btn {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.login-btn:hover {
+    background: #333333;
+}
+
+.text-center {text-align: center;}
+.p-t-136 {padding-top: 136px;}
+.txt2 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666666;
+  }
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+/*list*/
+ul {
+    list-style-type: none;
+    width: 500px;
+  }
+   
+  h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  }
+   
+  li img {
+    float: left;
+    margin: 0 15px 0 0;
+  }
+   
+  li p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  }
+   
+  li {
+    padding: 10px;
+    overflow: auto;
+  }
+   
+  li:hover {
+    background: #eee;
+    cursor: pointer;
+  }
