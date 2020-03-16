@@ -24,7 +24,8 @@ $("#login").on('click', function(){
 		        function (data) {
                     console.log(data);
                     console.log(typeof(data));
-                    if(data.message != "401"){
+                    //let jsonData = JSON.parse
+                    if(data.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
                         window.location="alta_programa.html";
                     }
