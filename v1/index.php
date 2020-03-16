@@ -12,7 +12,7 @@
         $stmt = $pdo->prepare($sql);
 
         $stmt->execute($parametros);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         var_dump($result);
 
