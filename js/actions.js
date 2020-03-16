@@ -10,6 +10,8 @@ $("#login").on('click', function(){
         password = $("#pass").val(),
         parametros = {},
         url = uris['url'+environment];
+    console.log(username);
+    console.log(password);
     try
 	{
 		if(username != '' && password != ''){

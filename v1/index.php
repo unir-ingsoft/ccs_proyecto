@@ -8,9 +8,10 @@
         $encryptedPwd = sha1($_REQUEST['password']);
         $parametros = array(':usuario' => $username, ':pass' => $encryptedPwd);
 
-        $pdo->prepare("SELECT * FROM usuarios WHERE cCorreo = :usuario AND cPassword = :pass");
+        $sql = "SELECT * FROM usuarios WHERE cCorreo = :usuario AND cPassword = :pass";
+        $stmt->$pdo->prepare($sql);
 
-        $pdo->execute($parametros);
+        $stmt->execute($parametros);
         $result = $pdo->fetch(PDO::FETCH_ASSOC);
 
         echo json_encode($result);
