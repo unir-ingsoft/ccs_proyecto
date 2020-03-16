@@ -14,6 +14,8 @@
         $stmt->execute($parametros);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        var_dump($result);
+
         echo json_encode($result);
     }
 ?>
