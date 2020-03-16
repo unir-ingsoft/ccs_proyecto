@@ -22,6 +22,8 @@ $("#login").on('click', function(){
             };
 			sendRequest(url + 'index.php', 'POST', parametros, 
 		        function (data) {
+                    console.log(data);
+                    console.log(typeof(data));
                     if(data.message != "401"){
                         sessionStorage.setItem("sessionStarted", 1);
                         window.location="alta_programa.html";
