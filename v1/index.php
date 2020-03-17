@@ -13,7 +13,7 @@
 
         $stmt->execute($parametros);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        //var_dump($result);
         echo json_encode($result);
     }
 ?>
