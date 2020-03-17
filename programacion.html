@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Programación - Pulse by Horizon Festival</title>
+        <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="app/css/estilo.css">
+   </head>
+   <body>
+        <div class="contenedor">
+            <div class="login-general">
+                <div class="login-screen">
+                    <span class="titulo">PROGRAMACIÓN</span>
+                    <div class="text-center">
+                        <button class="login-btn">
+                            Registrar un programa
+                        </button>
+                    </div>
+                    <span class="error">
+                    </span>
+                    <div>
+                        <ul id="programas">
+                            <li>
+                                <img width="100" height="100" src="app/css/img/logo.jpg" />
+                                <h3><?=$programa["cTema"] ?></h3> <a href="<?=$programa["cUrl"] ?>" target="_blank" style="float:right !important" ><img src="http://kornmexico.com/unirlab02/app/views/css/img/radio.png"></a>
+                                <p>Host: <?=$programa["cNombre"]." ".$programa["cApellido"] ?></p>
+                                <p>¿Cuándo?: <?=$programa["dFecha"]." a las ".$programa["cHora"] ?><p>
+                                <p>
+                                    <?php if ($_SESSION['usuariopk'] == $programa['nUsuarioPK']): ?>
+                                    <img onclick="showUpdate(<?=$programa['nProgramaPK'] ?>)" src="http://kornmexico.com/unirlab02/app/views/css/img/edit.png">
+                                    <a href="http://kornmexico.com/unirlab02/v1/index.php/programa/delete/<?=$programa['nProgramaPK'] ?>" onclick="return confirm('¿Estás seguro que deseas eliminar este registro?')"><img src="http://kornmexico.com/unirlab02/app/views/css/img/delete.png"></a>
+                                    <?php endif; ?>
+                                </p>
+                                <div id="<?=$programa['nProgramaPK'] ?>" style="display:none">
+                                    <form action="http://kornmexico.com/unirlab02/v1/index.php/programa/update" method="POST" class="login-form validate-form">
+                                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                                            <input class="input" type="text" maxlength="150" name="tema" placeholder="Tema del programa" value="<?=$programa['cTema']?>" required>
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "Este campo es obligatorio">
+                                            <input class="input" type="url" maxlength="150" name="url" placeholder="Url al programa" value="<?=$programa['cUrl']?>" required>
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "La fecha es obligatoria">
+                                            <input class="input" type="date" name="fecha" placeholder="Fecha" required value="<?=$programa['dFecha']?>">
+                                        </div>
+                                        <div class="wrapper-inputs validate-input" data-validate = "El horario es obligatorio">
+                                            <input class="input" type="time" name="hora" placeholder="Hora" required value="<?=$programa['cHora']?>">
+                                        </div>
+                                        <input type="hidden" value="<?=$programa['nProgramaPK'] ?>" name="programapk" />
+                                        <div class="container-login-btn">
+                                            <button class="login-btn">
+                                                Guardar
+                                            </button>
+                                            <div class="text-center" onclick="hideUpdate(<?=$programa['nProgramaPK'] ?>)">
+                                                Cancelar
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/init_vars.js"></script>
+    <script type="text/javascript" src="js/actions.js"></script>
+    <script type="text/javascript">
+        cargarProgramas();
+        function showUpdate(id){
+            var x = document.getElementById(id);
+            x.style.display = "block";
+        }
+        function hideUpdate(id){
+            var x = document.getElementById(id);
+            x.style.display = "none";
+        }
+    </script>
+</html>

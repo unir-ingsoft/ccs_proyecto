@@ -60,4 +60,4 @@ function sendRequest (url, method, params,  success, failed, async, background) 
           }
        }
     });
- }
+}
