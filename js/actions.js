@@ -22,6 +22,11 @@ $("#login").on('click', function(){
             };
 			sendRequest(url + 'index.php', 'POST', parametros, 
 		        function (data) {
+                    console.log(data);
+                    console.log(typeof(data));
+                    let objdata = JSON.parse(data);
+                    console.log(objdata.cNombre);
+                    console.log(typeof(objdata));
                     if(data.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
                         sessionStorage.setItem("nombre", data.cNombre);
