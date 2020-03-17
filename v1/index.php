@@ -1,4 +1,5 @@
 <?php
+    header('Content-type: application/json');
     include("../app/lib/database.php");
     $accion = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
@@ -14,6 +15,6 @@
         $stmt->execute($parametros);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //var_dump($result);
-        echo $result;
+        echo json_encode($result);
     }
 ?>
