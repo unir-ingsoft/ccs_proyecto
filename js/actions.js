@@ -24,12 +24,12 @@ $("#login").on('click', function(){
 		        function (data) {
                     console.log(data);
                     console.log(typeof(data));
-                    let objdata = JSON.parse(data);
-                    console.log(objdata.cNombre);
+                    //let objdata = JSON.parse(data);
+                    //console.log(objdata.cNombre);
                     console.log(typeof(objdata));
                     if(data.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
-                        sessionStorage.setItem("nombre", data.cNombre);
+                        sessionStorage.setItem("nombre", data[0].cNombre);
                         window.location="alta_programa.html";
                     }
                     else {
