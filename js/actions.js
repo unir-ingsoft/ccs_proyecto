@@ -22,9 +22,10 @@ $("#login").on('click', function(){
             };
 			sendRequest(url + 'index.php', 'POST', parametros, 
 		        function (data) {
-                    console.log(data.cNombre);
-                    console.log(typeof(data));
-                    if(data.length > 0){
+                    let objdata = JSON.parse(data);
+                    console.log(objdata.cNombre);
+                    console.log(typeof(objdata));
+                    if(objdata.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
                         sessionStorage.setItem("nombre", data.cNombre);
                         window.location="alta_programa.html";
