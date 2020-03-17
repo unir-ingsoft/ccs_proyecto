@@ -26,7 +26,7 @@ $("#login").on('click', function(){
                     console.log(typeof(data));
                     if(data.length > 0){
                         sessionStorage.setItem("sessionStarted", 1);
-                        sessionStorage.setItem(data.cNombre);
+                        sessionStorage.setItem("nombre", data.cNombre);
                         window.location="alta_programa.html";
                     }
                     else {
